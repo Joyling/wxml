@@ -18,7 +18,23 @@ Page({
   audio14: function () {
     this.audioCtx.seek(14)
   },
+  // audioStart: function () {
+  //   this.audioCtx.seek(0)
+  // },
   audioStart: function () {
-    this.audioCtx.seek(0)
+    wx.request({
+        url:"https://localhost:18081/",
+        // data:data,
+        header:{
+           // "Content-Type":"application/json"
+        },
+        success:function(res){
+            console.log(res.data)
+        },
+        fail:function(err){
+            console.log(err)
+        }
+
+    })
   }
 })
