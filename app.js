@@ -5,6 +5,10 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
+
+    // wx.redirectTo({
+    //   url: '../pages/playsong/playsong'
+    // });
   },
   getUserInfo:function(cb){
     var that = this
@@ -24,7 +28,14 @@ App({
       })
     }
   },
+  setGlobalData: function(obj){
+    for(let n in obj){
+      this.globalData[n] = obj[n];
+    }
+  },
   globalData:{
-    userInfo:null
+    userInfo: null,
+    topListId: '',
+    songData: null,
   }
 })
